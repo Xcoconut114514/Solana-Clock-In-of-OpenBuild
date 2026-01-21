@@ -12,12 +12,23 @@ export default defineConfig(({ mode }) => {
       plugins: [react()],
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
+        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
+        // Required for @solana/web3.js
+        'process.env': {},
+        global: 'globalThis',
       },
       resolve: {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
-      }
+      },
+      optimizeDeps: {
+        esbuildOptions: {
+          // Node.js global to browser globalThis
+          define: {
+            global: 'globalThis',
+          },
+        },
+      },
     };
 });
