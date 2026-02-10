@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
-import { Wallet, Menu, Bell, LogOut, Copy, Check, ExternalLink } from 'lucide-react';
+import { Wallet, Menu, Bell, LogOut, Copy, Check, ExternalLink, Trophy } from 'lucide-react';
 import { WalletConnectModal } from './WalletConnectModal';
+import type { PageType } from '../App';
 
 interface NavbarProps {
-  // Legacy props for compatibility - now handled internally via hooks
+  onNavigate?: (page: PageType) => void;
+  // Legacy props for compatibility
   onConnect?: () => void;
   isConnected?: boolean;
   walletAddress?: string;
 }
 
-export const Navbar: React.FC<NavbarProps> = () => {
+export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
   const { publicKey, connected, disconnect, wallet } = useWallet();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -54,7 +56,13 @@ export const Navbar: React.FC<NavbarProps> = () => {
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
           <a href="#" className="text-white hover:text-green-400 transition-colors">Learn</a>
           <a href="#" className="hover:text-white transition-colors">Challenges</a>
-          <a href="#" className="hover:text-white transition-colors">Bounties</a>
+          <button
+            onClick={() => onNavigate?.('nft-checker')}
+            className="hover:text-white transition-colors flex items-center gap-1.5"
+          >
+            <Trophy size={14} />
+            NFT徽章
+          </button>
           <a href="#" className="hover:text-white transition-colors">SkillHub</a>
           <a href="#" className="hover:text-white transition-colors">Community</a>
         </div>
