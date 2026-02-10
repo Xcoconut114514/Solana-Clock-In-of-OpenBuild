@@ -1,0 +1,30 @@
+{
+  "name": "solana-clock-in-backend",
+  "version": "1.0.0",
+  "description": "Backend Oracle service for Solana-Clock-In-of-OpenBuild - handles co-signing for secure check-in verification",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "ts-node-esm src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "generate-keypair": "ts-node-esm scripts/generate-keypair.ts"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.95.4",
+    "bs58": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.14.0",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.8.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
