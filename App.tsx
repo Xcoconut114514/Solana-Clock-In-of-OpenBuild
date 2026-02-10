@@ -7,10 +7,11 @@
  * - Multi-wallet support (Phantom, OKX, Bitget, Coinbase, etc.)
  * - Real staking pool functionality
  * - Co-signed check-in transactions via backend Oracle
- * - NFT Checker for Blueshift challenge tasks
+ * - NFT Checker for Blueshift challenge tasks (separate route: /nft-checker)
  */
 
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { WalletContextProvider } from './contexts/WalletContext';
 import { StakePoolProvider } from './contexts/StakePoolContext';
 import { Navbar } from './components/Navbar';
@@ -19,22 +20,11 @@ import { CheckInCard } from './components/CheckInCard';
 import { InfoSidebar } from './components/InfoSidebar';
 import { NFTChecker } from './pages/NFTChecker';
 
-type Page = 'home' | 'nft-checker';
-
-function AppContent() {
-  const [currentPage, setCurrentPage] = useState<Page>('home');
-
-  if (currentPage === 'nft-checker') {
-    return (
-      <div className="min-h-screen bg-black text-white selection:bg-green-400 selection:text-black">
-        <NFTChecker onBack={() => setCurrentPage('home')} />
-      </div>
-    );
-  }
-
+/** Home page content */
+function HomePage() {
   return (
     <div className="min-h-screen bg-black text-white selection:bg-green-400 selection:text-black">
-      <Navbar onNavigate={setCurrentPage} />
+      <Navbar />
       
       <main className="pb-20">
         <Hero />
@@ -95,13 +85,27 @@ function AppContent() {
   );
 }
 
+/** NFT Checker page wrapper */
+function NFTCheckerPage() {
+  return (
+    <div className="min-h-screen bg-black text-white selection:bg-green-400 selection:text-black">
+      <NFTChecker />
+    </div>
+  );
+}
+
 function App() {
   return (
-    <WalletContextProvider network="devnet">
-      <StakePoolProvider>
-        <AppContent />
-      </StakePoolProvider>
-    </WalletContextProvider>
+    <BrowserRouter>
+      <WalletContextProvider network="devnet">
+        <StakePoolProvider>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/nft-checker" element={<NFTCheckerPage />} />
+          </Routes>
+        </StakePoolProvider>
+      </WalletContextProvider>
+    </BrowserRouter>
   );
 }
 

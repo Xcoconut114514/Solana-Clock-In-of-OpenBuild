@@ -11,6 +11,7 @@
 
 import React, { useState } from 'react';
 import { Search, ChevronDown, ChevronUp, ExternalLink, Play, Code, BookOpen, CheckCircle, XCircle, Trophy, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useNFTQuery, TaskResult } from '../hooks/useNFTQuery';
 import { categoryColors, REQUIRED_TASK_COUNT, TaskCategory } from '../config/blueshiftCollections';
 
@@ -205,11 +206,7 @@ const TaskCard: React.FC<{ taskResult: TaskResult }> = ({ taskResult }) => {
 };
 
 // ─── Main NFT Checker Page ───────────────────────────────────────
-interface NFTCheckerProps {
-  onBack: () => void;
-}
-
-export const NFTChecker: React.FC<NFTCheckerProps> = ({ onBack }) => {
+export const NFTChecker: React.FC = () => {
   const [address, setAddress] = useState('');
   const { loading, error, result, queryNFTs, reset } = useNFTQuery();
 
@@ -232,13 +229,13 @@ export const NFTChecker: React.FC<NFTCheckerProps> = ({ onBack }) => {
 
         <div className="max-w-4xl mx-auto">
           {/* Back Button */}
-          <button
-            onClick={onBack}
+          <Link
+            to="/"
             className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-6 text-sm"
           >
             <ArrowLeft size={16} />
             <span>返回主页</span>
-          </button>
+          </Link>
 
           <div className="flex items-center gap-3 mb-2">
             <span className="px-2 py-1 rounded border border-green-500/30 text-green-400 text-xs font-semibold bg-green-500/10">

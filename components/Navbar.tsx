@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { Wallet, Menu, Bell, LogOut, Copy, Check, ExternalLink, Search } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { WalletConnectModal } from './WalletConnectModal';
 
 interface NavbarProps {
-  onNavigate?: (page: 'home' | 'nft-checker') => void;
   // Legacy props for compatibility - now handled internally via hooks
   onConnect?: () => void;
   isConnected?: boolean;
   walletAddress?: string;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
+export const Navbar: React.FC<NavbarProps> = () => {
   const { publicKey, connected, disconnect, wallet } = useWallet();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -55,13 +55,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
           <a href="#" className="text-white hover:text-green-400 transition-colors">Learn</a>
           <a href="#" className="hover:text-white transition-colors">Challenges</a>
-          <button
-            onClick={() => onNavigate?.('nft-checker')}
+          <Link
+            to="/nft-checker"
             className="flex items-center gap-1.5 hover:text-green-400 transition-colors"
           >
             <Search size={14} />
             NFT 检测
-          </button>
+          </Link>
           <a href="#" className="hover:text-white transition-colors">SkillHub</a>
           <a href="#" className="hover:text-white transition-colors">Community</a>
         </div>
