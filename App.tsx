@@ -7,20 +7,34 @@
  * - Multi-wallet support (Phantom, OKX, Bitget, Coinbase, etc.)
  * - Real staking pool functionality
  * - Co-signed check-in transactions via backend Oracle
+ * - NFT Checker for Blueshift challenge tasks
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { WalletContextProvider } from './contexts/WalletContext';
 import { StakePoolProvider } from './contexts/StakePoolContext';
-import { Navbar } from './components/NavbarNew';
+import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { CheckInCard } from './components/CheckInCardNew';
-import { InfoSidebar } from './components/InfoSidebarNew';
+import { CheckInCard } from './components/CheckInCard';
+import { InfoSidebar } from './components/InfoSidebar';
+import { NFTChecker } from './pages/NFTChecker';
+
+type Page = 'home' | 'nft-checker';
 
 function AppContent() {
+  const [currentPage, setCurrentPage] = useState<Page>('home');
+
+  if (currentPage === 'nft-checker') {
+    return (
+      <div className="min-h-screen bg-black text-white selection:bg-green-400 selection:text-black">
+        <NFTChecker onBack={() => setCurrentPage('home')} />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-black text-white selection:bg-green-400 selection:text-black">
-      <Navbar />
+      <Navbar onNavigate={setCurrentPage} />
       
       <main className="pb-20">
         <Hero />
