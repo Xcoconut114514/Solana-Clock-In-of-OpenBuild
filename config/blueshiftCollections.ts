@@ -3,8 +3,7 @@
  * -------------------------------------
  * Defines the 6 challenge tasks from learn.blueshift.gg
  * with their NFT collection addresses and related resources.
- * 
- * Tasks 1-4 are REQUIRED for "QUALIFIED" status.
+ * * Tasks 1-4 are REQUIRED for "QUALIFIED" status.
  */
 
 export type TaskCategory = 'TypeScript' | 'Anchor' | 'Rust';
@@ -55,7 +54,7 @@ export const BLUESHIFT_TASKS: TaskDefinition[] = [
     id: 1,
     name: 'Mint an SPL Token',
     category: 'TypeScript',
-    collectionAddress: '5xcXS3qNA4a3WvqLDJ6TTyDj6puqGDnheRwvR94YwxZG',
+    collectionAddress: '2NVDhSXZck9AX2aUdPSxMemLN2wtqEd5sNEcwuZVCbHW',
     challengeUrl: 'https://learn.blueshift.gg/zh-CN/challenges/typescript-mint-an-spl-token',
     videoTutorials: [
       { label: 'B站视频教程', url: 'https://www.bilibili.com/video/BV1evzGBsEqW/' },
@@ -69,7 +68,7 @@ export const BLUESHIFT_TASKS: TaskDefinition[] = [
     id: 2,
     name: 'Anchor Vault',
     category: 'Anchor',
-    collectionAddress: 'EYYhMXWhSZvvsemMkpGyDmMFBxcMR6ntBoMDkt4UMGqJ',
+    collectionAddress: '53tiK9zY67DuyA1tgQ6rfNgixMB1LiCP9D67RgfbCrpz',
     challengeUrl: 'https://learn.blueshift.gg/zh-CN/challenges/anchor-vault',
     videoTutorials: [
       { label: 'B站视频教程', url: 'https://www.bilibili.com/video/BV1eRzpBHEeh/' },
@@ -84,7 +83,7 @@ export const BLUESHIFT_TASKS: TaskDefinition[] = [
     id: 3,
     name: 'Anchor Escrow',
     category: 'Anchor',
-    collectionAddress: '4A2UgqWcEWSrJ3RAe6NaKqD4AF5JH8WWkehvpuATTFMN',
+    collectionAddress: '2E5K7FxDWGXkbRpFEAkhR8yQwiUBGggVyng2vaAhah5L',
     challengeUrl: 'https://learn.blueshift.gg/zh-CN/challenges/anchor-escrow',
     videoTutorials: [
       { label: 'B站视频教程', url: 'https://www.bilibili.com/video/BV1E5zSBeEuL/' },
@@ -98,7 +97,7 @@ export const BLUESHIFT_TASKS: TaskDefinition[] = [
     id: 4,
     name: 'Pinocchio Vault',
     category: 'Rust',
-    collectionAddress: 'CKU4dF958UWcYLdbi41Cck6drrUYKysqVFWAkDDCUUQ',
+    collectionAddress: 'AL38QM96SDu4Jpx7UGcTcaLtwvWPVgRUzg9PqC787djK',
     challengeUrl: 'https://learn.blueshift.gg/zh-CN/challenges/pinocchio-vault',
     videoTutorials: [
       { label: 'B站视频教程', url: 'https://www.bilibili.com/video/BV1iA6iBtEka/' },
@@ -114,7 +113,7 @@ export const BLUESHIFT_TASKS: TaskDefinition[] = [
     id: 5,
     name: 'Pinocchio Escrow',
     category: 'Rust',
-    collectionAddress: '3C33HhMPKZBjM2GnVGJKFLaawY4gumNSGF5p6MdHWAEM',
+    collectionAddress: 'HTXVJ8DD6eSxkVyDwgddxGw8cC8j6kXda3BUipA43Wvs',
     challengeUrl: 'https://learn.blueshift.gg/zh-CN/challenges/pinocchio-escrow',
     videoTutorials: [
       { label: 'B站视频教程', url: 'https://www.bilibili.com/video/BV1iA6iBtE1b/' },
@@ -129,7 +128,7 @@ export const BLUESHIFT_TASKS: TaskDefinition[] = [
     id: 6,
     name: 'Pinocchio AMM',
     category: 'Rust',
-    collectionAddress: '47ch3xWXYYdUYCQUfiE3AWjDoaUWpm1mgMYqX3NfMh5F',
+    collectionAddress: '9Lz67dYmMG8JzkkvfWQuVgGR12JdjV54p9e8TViKiqQz',
     challengeUrl: 'https://learn.blueshift.gg/zh-CN/challenges/pinocchio-amm',
     videoTutorials: [
       { label: 'B站视频教程', url: 'https://www.bilibili.com/video/BV19sfDB5EHt/' },
